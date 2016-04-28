@@ -1,0 +1,11 @@
+# Sample configuration for caseta component, the integration report
+# can be emailed to yourself from the Lutron app.  Save this file in
+# your config directory
+
+# NOTE:  the file name *IS* important at this point
+caseta:
+  host: 192.168.10.234
+  user: lutron
+  integration_report: caseta.json
+  password: integration
+  scan_interval: 10
