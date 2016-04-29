@@ -7,16 +7,13 @@ import logging
 import json
 from homeassistant import bootstrap
 from homeassistant.const import (
-    ATTR_DISCOVERED, ATTR_SERVICE, CONF_ACCESS_TOKEN,
+    ATTR_DISCOVERED, ATTR_SERVICE,
     EVENT_PLATFORM_DISCOVERED)
-from homeassistant.helpers import validate_config
-from homeassistant.helpers.entity import ToggleEntity
-from homeassistant.loader import get_component
-from homeassistant.components.light import ATTR_BRIGHTNESS, Light
 from homeassistant.loader import get_component
 
 REQUIREMENTS = ['python-caseta']
 DOMAIN = "light"
+
 
 def setup(hass, config):
     """Setup the Caseta component."""
@@ -27,11 +24,11 @@ def setup(hass, config):
 
     config = config['caseta']
     host = config.get('host')
-    port = config.get('port',23)
-    user = config.get('user','lutron')
-    pw = config.get('password','integration')
+    port = config.get('port', 23)
+    user = config.get('user', 'lutron')
+    pw = config.get('password', 'integration')
     ir_file = config.get('integration_report')
-    logging.info('Setting credentials for pycaseta')
+    logger.info('Setting credentials for pycaseta')
 
     pycaseta.set_credentials(host, port, user, pw)
 
@@ -46,8 +43,6 @@ def setup(hass, config):
 
             ):
 
-
-
         component = get_component(component_name)
 
         # Ensure component is loaded
@@ -60,4 +55,3 @@ def setup(hass, config):
         })
 
     return True
-

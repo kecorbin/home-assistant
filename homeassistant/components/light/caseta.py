@@ -26,7 +26,6 @@ def setup_platform(hass, config, add_devices_callback, discovery_info=None):
             add_devices_callback([CasetaDimmer(device)])
 
 
-
 class CasetaDimmer(Light):
     """Representation of a caseta lamp dimmer module."""
 
@@ -35,6 +34,7 @@ class CasetaDimmer(Light):
         self.caseta = caseta
 
         logging.info('creating new caseta switch')
+
     @property
     def unique_id(self):
         """Return the ID of this caseta light."""
