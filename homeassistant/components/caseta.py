@@ -11,7 +11,7 @@ from homeassistant.const import (
     EVENT_PLATFORM_DISCOVERED)
 from homeassistant.loader import get_component
 
-REQUIREMENTS = ['python-caseta']
+REQUIREMENTS = ['pycaseta']
 DOMAIN = "light"
 
 

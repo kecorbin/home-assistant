@@ -20,7 +20,7 @@ def setup_platform(hass, config, add_devices_callback, discovery_info=None):
 
     with open(integration_report) as f:
         integration_dict = json.load(f)
-    print("setup_plaform received: {}".format(integration_dict))
+
     if len(pycaseta.get_devices(integration_dict=integration_dict)) > 0:
         for device in pycaseta.get_devices(integration_dict=integration_dict):
             add_devices_callback([CasetaDimmer(device)])
